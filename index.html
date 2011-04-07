@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link href="pagination.css" rel="stylesheet" />
+<link href="grid.css" rel="stylesheet" />
+<script language="javascript" type="text/javascript" src="jquery_1_4_2_min.js"></script>
+<script language="javascript" type="text/javascript" src="quicksand.js"></script>
+<script language="javascript" type="text/javascript" src="jquery.easing.min.js"></script>
+<script type="text/javascript" src="jquery.pagination.js"></script>
+<script type="text/javascript" type="text/javascript" src="custom.pagination.js"></script>
+<script language="javascript" type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+<form id="filter">
+  <fieldset>
+    <legend>Filter by type</legend>
+    <label><input type="radio" name="type" value="all" checked="checked">Everything</label>
+    <label><input type="radio" name="type" value="app">Applications</label>
+    <label><input type="radio" name="type" value="util">Utilities</label>
+
+  </fieldset>
+  <fieldset>
+    <legend>Sort by</legend>
+    <label><input type="radio" name="sort" value="size" checked="checked">Size</label>
+    <label><input type="radio" name="sort" value="name">Name</label>      
+  </fieldset>
+</form>
+<ul id="hiddenTotal" style="display:none">
+  <li data-id="id-1" data-type="util">
+    <img src="activity-monitor.png" width="128" height="128" alt="" />
+    <strong>Activity Monitor</strong>
+    <span data-type="size">348 KB</span>
+  </li>
+  <li data-id="id-2" data-type="app">
+    <img src="address-book.png" width="128" height="128" alt="" />
+    <strong>Address Book</strong> 
+    <span data-type="size">1904 KB</span>
+  </li>
+  <li data-id="id-3" data-type="app">
+    <img src="finder.png" width="128" height="128" alt="" />
+    <strong>Finder</strong> 
+    <span data-type="size">1337 KB</span>
+  </li>
+  <li data-id="id-4" data-type="app">
+    <img src="front-row.png" width="128" height="128" alt="" />
+    <strong>Front Row</strong> 
+    <span data-type="size">401 KB</span>
+  </li>
+  <li data-id="id-5" data-type="app">
+    <img src="google-pokemon.png" width="128" height="128" alt="" />
+    <strong>Google Pokémon</strong> 
+    <span data-type="size">12875 KB</span>
+  </li>
+  <li data-id="id-6" data-type="app">
+    <img src="ical.png" width="128" height="128" alt="" />
+    <strong>iCal</strong> 
+    <span data-type="size">5273 KB</span>
+  </li>
+  <li data-id="id-7" data-type="app">
+    <img src="ichat.png" width="128" height="128" alt="" />
+    <strong>iChat</strong> 
+    <span data-type="size">5437 KB</span>
+  </li>
+  <li data-id="id-8" data-type="app">
+    <img src="interface-builder.png" width="128" height="128" alt="" />
+    <strong>Interface Builder</strong> 
+    <span data-type="size">2764 KB</span>
+  </li>
+  <li data-id="id-9" data-type="app">
+    <img src="ituna.png" width="128" height="128" alt="" />
+    <strong>iTuna</strong> 
+    <span data-type="size">17612 KB</span>
+  </li>
+  <li data-id="id-10" data-type="util">
+    <img src="keychain-access.png" width="128" height="128" alt="" />
+    <strong>Keychain Access</strong> 
+    <span data-type="size">972 KB</span>
+  </li>
+  <li data-id="id-11" data-type="util">
+    <img src="network-utility.png" width="128" height="128" alt="" />
+    <strong>Network Utility</strong> 
+    <span data-type="size">245 KB</span>
+  </li>
+  <li data-id="id-12" data-type="util">
+    <img src="sync.png" width="128" height="128" alt="" />
+    <strong>Sync</strong> 
+    <span data-type="size">3788 KB</span>
+  </li>
+  <li data-id="id-13" data-type="app">
+    <img src="textedit.png" width="128" height="128" alt="" />
+    <strong>TextEdit</strong> 
+    <span data-type="size">1669 KB</span>
+  </li>
+</ul>
+<div id="gridContainer">
+    <ul id="Searchresult" class="image-grid">
+    </ul>
+</div>
+<div id="Pagination"></div>
+</body>
+</html>
