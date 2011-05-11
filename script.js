@@ -26,8 +26,10 @@ $(function() {
 
   // bind radiobuttons in the form
   var $filterType = $('#filter input[name="type"]');
- // var $filterSort = $('#filter input[name="sort"]');
-
+  var $filterMaterial = $('#filter input[name="material"]');
+  console.log($filterMaterial);
+  
+  
   // get the first collection
   var $applications = $('#hiddenTotal');
   console.log($applications);
@@ -37,13 +39,39 @@ $(function() {
 
   // clone applications to get a second collection
 
+  $filterType.change(function(e){
+	console.log(e.currentTarget)
+	$filterType.attr('selected','false');
+	e.currentTarget.setAttribute('selected','true');						  
+  });
+  
+ $filterMaterial.change(function(e){
+	$filterMaterial.attr('selected','false');
+	e.currentTarget.setAttribute('selected','true');						  
+  });
+
   // attempt to call Quicksand on every form change
-  $filterType.change(function(e) {
-    if ($($filterType+':checked').val() == 'all') {
+  $filterType.add($filterMaterial).change(function(e) {
+	console.log("o material escolhido é:"+$($filterMaterial+'[selected = true]').val());
+	console.log("o filterType escolhido é:"+$($filterType+'[selected = true]').val());
+    if ($($filterType+'[selected=true]').val() == 'all') {
       var $filteredData = $data.find('li');
-	  console.log('Data with no sort: '+$filteredData.html());
+	  console.log('Data with no sort');
     } else {
-      var $filteredData = $data.find('li[data-type=' + $($filterType+":checked").val() + ']');
+	  var $firstFiltered = $data.find('li[data-type=' + $($filterType+'[selected=true]').val() + ']');
+      var $filteredData = new Array();
+	  for(var j=0; j<$firstFiltered.length; j++)
+	  {
+		console.log("Data from the first Sort:"+$firstFiltered[j]);
+		console.log("Material escolhido: "+$($filterMaterial+'[selected=true]').val())
+		if($firstFiltered[j].getAttribute('data-material')==$($filterMaterial+'[selected=true]').val())
+		{
+			console.log("Yeeah")
+			$filteredData.push($firstFiltered[j]);
+		}
+	  }
+	  
+	  
 	  for(var i=0; i<$filteredData.length; i++)
 	  {
 	  console.log('Data After sort from '+$filterType.html().toString()+': '+$filteredData[i].innerHTML);
